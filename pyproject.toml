@@ -2,18 +2,22 @@
 name = "inure-bot"
 version = "0.1.0"
 description = ""
-authors = [
-    {name = "leo9iota",email = "leo9iota@gmail.com"}
-]
+authors = [ { name = "leo9iota", email = "leo9iota@gmail.com" } ]
 readme = "README.md"
 requires-python = ">=3.13"
+
 dependencies = [
+    "alpaca-trade-api",
+    "pandas",
+    "numpy",
+    "matplotlib",
+    "requests",
 ]
 
 [tool.poetry]
-packages = [{include = "inure_bot", from = "src"}]
+packages = [ { include = "inure_bot", from = "src" } ]
 
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
+requires = [ "poetry-core>=2.0.0,<3.0.0" ]
 build-backend = "poetry.core.masonry.api"
