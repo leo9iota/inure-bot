@@ -11,3 +11,8 @@
 3. Develop trading strategy (Martingale/DCA)
 4. Integrate an AI
 5. Deploy bot
+
+## Next Steps
+
+1. [ ] Scaffold project with UV (optional)
+2. [ ] Setup dev environment
