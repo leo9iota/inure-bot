@@ -1,5 +1,6 @@
 def main():
-    print("Hello from inure-bot!")
+    nigger = "nigger faggot"
+    print(nigger)
 
 
 if __name__ == "__main__":
