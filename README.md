@@ -2,7 +2,7 @@
 
 ## Tech Stack
 
-![Tech Stack](https://go-skill-icons.vercel.app/api/icons?i=ts,react,python,fastapi,telegram)
+![Tech Stack](https://go-skill-icons.vercel.app/api/icons?i=ts,react,python,fastapi,tailwind,astro,md,telegram)
 
 ---
 ## Crypto Signal Bot
