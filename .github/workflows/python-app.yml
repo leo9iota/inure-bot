@@ -59,14 +59,14 @@ jobs:
           DB_HOST: localhost
           DB_PORT: 5432
           DB_NAME: inure_bot_test
+          PYTHONPATH: ${{ github.workspace }}/backend
         run: |
           source .venv/bin/activate
           cd backend
-          pytest -v --cov=app --cov=bot --cov-report=xml
+          python -m pytest -v --cov=app --cov=bot --cov-report=xml
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
           file: ./backend/coverage.xml
           fail_ci_if_error: false
-
