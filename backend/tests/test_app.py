@@ -1,7 +1,11 @@
-from app.main import app
+from main import app
+import sys
+from pathlib import Path
 from fastapi.testclient import TestClient
 from typing import Dict
 
+backend_dir = Path(__file__).parent.parent
+sys.path.insert(0, str(backend_dir))
 client: TestClient = TestClient(app=app)
 
 
