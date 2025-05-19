@@ -75,11 +75,11 @@ The easiest way to set up PostgreSQL locally is using Docker:
 1. Install Docker and Docker Compose
 2. Start the PostgreSQL container:
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 3. Verify the database is running:
 ```bash
-docker-compose ps
+docker compose ps
 ```
 
 ### Manual PostgreSQL Setup
