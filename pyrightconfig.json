@@ -1,0 +1,15 @@
+{
+    "include": ["backend"],
+    "exclude": ["**/node_modules", "**/__pycache__", ".venv"],
+    "ignore": [],
+    "defineConstant": {
+        "DEBUG": true
+    },
+    "typeCheckingMode": "strict",
+    "useLibraryCodeForTypes": true,
+    "reportMissingImports": true,
+    "reportMissingTypeStubs": false,
+    "pythonVersion": "3.13",
+    "pythonPlatform": "All",
+    "extraPaths": ["backend"]
+}
