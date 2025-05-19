@@ -63,3 +63,43 @@ python run.py
 ```
 
 The server will start at http://0.0.0.0:8000 with auto-reload enabled.
+
+## Database Setup
+
+This project uses PostgreSQL for both development and production environments.
+
+### Local Development with Docker
+
+The easiest way to set up PostgreSQL locally is using Docker:
+
+1. Install Docker and Docker Compose
+2. Start the PostgreSQL container:
+```bash
+docker-compose up -d
+```
+3. Verify the database is running:
+```bash
+docker-compose ps
+```
+
+### Manual PostgreSQL Setup
+
+If you prefer to install PostgreSQL directly:
+
+1. Install PostgreSQL 16 on your system
+2. Create a database and user:
+```sql
+CREATE DATABASE inure_bot;
+CREATE USER postgres WITH PASSWORD 'postgres';
+GRANT ALL PRIVILEGES ON DATABASE inure_bot TO postgres;
+```
+3. Update the .env file with your database credentials
+
+### Environment Variables
+
+The application uses the following environment variables for database connection:
+- DB_USER: PostgreSQL username (default: postgres)
+- DB_PASSWORD: PostgreSQL password (default: postgres)
+- DB_HOST: Database host (default: localhost)
+- DB_PORT: Database port (default: 5432)
+- DB_NAME: Database name (default: inure_bot)
