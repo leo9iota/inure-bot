@@ -3,8 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlmodel import Session
 from typing import Dict, Any, List
 
-from .database import create_db_and_tables, get_session
-from .models import User, TradingBot, Trade
+from app.database import create_db_and_tables, get_session
+from app.models import User, TradingBot, Trade
 
 app: FastAPI = FastAPI(
     title="Inure Bot API",
