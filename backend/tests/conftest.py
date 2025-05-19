@@ -1,7 +1,13 @@
+import sys
+from pathlib import Path
 import pytest
 from sqlmodel import SQLModel, create_engine, Session
 from sqlalchemy.engine import Engine
 from typing import Generator
+
+# Add the parent directory to sys.path to allow importing from main and app
+backend_dir = Path(__file__).parent.parent
+sys.path.insert(0, str(backend_dir))
 
 # Test database URL
 TEST_DATABASE_URL: str = "postgresql://postgres:postgres@localhost:5432/inure_bot_test"
@@ -23,7 +29,7 @@ def db_session() -> Generator[Session, None, None]:
 def override_dependency() -> None:
     """Override the database session dependency for tests."""
     # This replaces the dependency in your FastAPI app
-    from app.main import app
+    from main import app
     from app.database import get_session
 
     def get_test_db() -> Generator[Session, None, None]:
