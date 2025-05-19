@@ -1,11 +1,12 @@
 from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from sqlmodel import Session
+from typing import Dict, Any, List
 
 from .database import create_db_and_tables, get_session
 from .models import User, TradingBot, Trade
 
-app = FastAPI(
+app: FastAPI = FastAPI(
     title="Inure Bot API",
     description="Crypto Trading Bot",
     version="0.1.0",
@@ -22,15 +23,16 @@ app.add_middleware(
 
 
 @app.on_event("startup")
-def on_startup():
+def on_startup() -> None:
     create_db_and_tables()
 
 
 @app.get("/")
-async def root():
+async def root() -> Dict[str, str]:
     return {"message": "Welcome to Inure Bot API"}
 
 
 @app.get("/health")
-async def health_check():
+async def health_check() -> Dict[str, str]:
     return {"status": "healthy"}
+
