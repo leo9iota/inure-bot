@@ -1,18 +1,27 @@
 from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from sqlmodel import Session
-from typing import Dict, Any, List, Annotated
+from typing import Dict, Any, AsyncGenerator, List, Annotated
+from contextlib import asynccontextmanager
 
 from app.database import create_db_and_tables, get_session
-from app.models import User, TradingBot, Trade
+from app.models import User
 
 # Type alias for dependency injection
-SessionDep = Annotated[Session, Depends(get_session)]
+SessionDep = Annotated[Session, Depends(dependency=get_session)]
+
+@asynccontextmanager
+async def lifespan(app: FastAPI) -> AsyncGenerator[None, Any]:
+    # Startup code
+    create_db_and_tables()
+    yield
+    # Shutdown code (if any)
 
 app: FastAPI = FastAPI(
     title="Inure Bot API",
     description="Crypto Trading Bot",
     version="0.1.0",
+    lifespan=lifespan,
 )
 
 # Configure CORS
@@ -23,11 +32,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-
-@app.on_event("startup")
-def on_startup() -> None:
-    create_db_and_tables()
 
 
 @app.get("/")
@@ -46,3 +50,5 @@ async def get_users(session: SessionDep) -> List[Dict[str, Any]]:
     from sqlmodel import select
     users = session.exec(select(User)).all()
     return [{"id": user.id, "username": user.username, "email": user.email} for user in users]
+
+
