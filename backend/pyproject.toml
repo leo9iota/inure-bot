@@ -26,4 +26,3 @@ test = [
 
 [tool.setuptools]
 packages = [ "app" ]
-
