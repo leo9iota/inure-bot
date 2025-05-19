@@ -2,12 +2,12 @@ from app.main import app
 from fastapi.testclient import TestClient
 from typing import Dict
 
-client: TestClient = TestClient(app)
+client: TestClient = TestClient(app=app)
 
 
 def test_root_endpoint() -> None:
     """Test that the root endpoint returns a welcome message."""
-    response = client.get("/")
+    response = client.get(url="/")
     assert response.status_code == 200
     response_json: Dict[str, str] = response.json()
     assert "message" in response_json
@@ -16,7 +16,7 @@ def test_root_endpoint() -> None:
 
 def test_health_check() -> None:
     """Test that the health check endpoint returns healthy status."""
-    response = client.get("/health")
+    response = client.get(url="/health")
     assert response.status_code == 200
     response_json: Dict[str, str] = response.json()
     assert response_json == {"status": "healthy"}
