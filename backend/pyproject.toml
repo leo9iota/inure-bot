@@ -25,4 +25,4 @@ test = [
 ]
 
 [tool.setuptools]
-packages = [ "app" ]
+packages = [ "app", "bot" ]
