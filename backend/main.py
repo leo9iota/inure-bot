@@ -7,7 +7,7 @@ from .models import User, TradingBot, Trade
 
 app = FastAPI(
     title="Inure Bot API",
-    description="Crypto trading bot SaaS with Telegram integration",
+    description="Crypto Trading Bot",
     version="0.1.0",
 )
 
