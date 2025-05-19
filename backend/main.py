@@ -1,7 +1,5 @@
 def main():
-    nigger = "nigger faggot"
-    print(nigger)
-
+    print("Hello, World!")
 
 if __name__ == "__main__":
     main()
